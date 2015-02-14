@@ -18,18 +18,12 @@
   "bugs": {
     "url": "https://github.com/gobie/gjslinter/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
+  "license": "MIT",
   "main": "index.js",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "scripts": {
-    "test": "grunt test"
-  },
+  "scripts": {},
   "dependencies": {
     "colors": "~0.6.2",
     "gulp-util": "^3.0.3",

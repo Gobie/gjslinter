@@ -1,10 +1,10 @@
 # gjslinter
 
-Stream wrapper to allow access to Google Closure Linter [Google Closure Linter](https://developers.google.com/closure/utilities/)  from NodeJS
+Stream wrapper to allow access to [Google Closure Linter](https://developers.google.com/closure/utilities/) from NodeJS
 
-As Google Linter is coded in python, you MUST have python installed, and accessible in your PATH.
+As Google Closure Linter is coded in python so you MUST have python installed and accessible in your PATH.
 
-This stream wrapper has bundled the Google Closure Linter v2.3.12.
+This package has bundled the Google Closure Linter v2.3.12.
 
 ## Getting Started
 Install the module with:
