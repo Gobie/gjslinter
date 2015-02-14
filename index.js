@@ -51,6 +51,7 @@ var gjslinter = function(opts) {
 };
 
 gjslinter.reporter = function() {
+  var indent = '  ';
   return through.obj(function (file, enc, cb) {
     var result = file.gjslinter;
     if (result.success) {
@@ -60,7 +61,12 @@ gjslinter.reporter = function() {
     console.log(colors.white.underline(file.path));
     for (var i = 0, len = result.results.errors.length; i < len; i++) {
       var error = result.results.errors[i];
-      console.log(colors.gray('  [%s] line %s %s'), error.code, error.line, colors.blue(error.description));
+      var descriptionLines = error.description.trim().split('\n');
+      console.log(colors.gray(indent + '[%s] line %s %s'), error.code, error.line, colors.blue(descriptionLines[0]));
+
+      if (descriptionLines.length > 1) {
+        console.log(colors.gray(indent+ descriptionLines.slice(1).join('\n' + indent).trim()));
+      }
     }
     console.log();
     console.log(colors.yellow('%s errors'), result.results.total);
