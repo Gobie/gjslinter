@@ -60,7 +60,7 @@ plugin.reporter = function() {
       console.log(colors.white.underline(file.path));
       for (var i = 0, len = result.results.errors.length; i < len; i++) {
         var error = result.results.errors[i];
-        console.log(colors.gray('  [%s] line %s %s'), error.line, error.code, colors.blue(error.description));
+        console.log(colors.gray('  [%s] line %s %s'), error.code, error.line, colors.blue(error.description));
       }
       console.log();
       console.log(colors.yellow('%s errors'), result.results.total);
