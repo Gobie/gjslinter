@@ -1,5 +1,6 @@
 'use strict';
 
+var path = require('path');
 var gjslint = require('./lib/gjslint-wrapper');
 var merge = require('merge');
 var through = require('through2');
@@ -58,7 +59,8 @@ gjslinter.reporter = function() {
       return cb(null, file);
     }
 
-    console.log(colors.white.underline(file.path));
+    var relativeFilePath = path.relative(file.cwd, file.path);
+    gutil.log('[' + colors.green(PLUGIN_NAME) + '] found ' + colors.yellow(result.results.total + ' errors') + ' in ' + colors.blue(relativeFilePath));
     for (var i = 0, len = result.results.errors.length; i < len; i++) {
       var error = result.results.errors[i];
       var descriptionLines = error.description.trim().split('\n');
@@ -68,9 +70,6 @@ gjslinter.reporter = function() {
         console.log(colors.gray(indent+ descriptionLines.slice(1).join('\n' + indent).trim()));
       }
     }
-    console.log();
-    console.log(colors.yellow('%s errors'), result.results.total);
-    console.log();
 
     return cb(null, file);
   });
