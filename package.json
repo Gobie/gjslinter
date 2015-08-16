@@ -5,7 +5,7 @@
     "closure-linter",
     "gjslinter"
   ],
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "https://github.com/gobie/gjslinter",
   "author": {
     "name": "Michal Brašna",
