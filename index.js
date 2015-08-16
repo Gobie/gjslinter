@@ -60,11 +60,11 @@ gjslinter.reporter = function() {
     }
 
     var relativeFilePath = path.relative(file.cwd, file.path);
-    gutil.log('[' + colors.green(PLUGIN_NAME) + '] found ' + colors.yellow(result.results.total + ' errors') + ' in ' + colors.blue(relativeFilePath));
+    gutil.log('[' + colors.green(PLUGIN_NAME) + '] found ' + colors.yellow(result.results.total + ' errors') + ' in ' + colors.magenta(relativeFilePath));
     for (var i = 0, len = result.results.errors.length; i < len; i++) {
       var error = result.results.errors[i];
       var descriptionLines = error.description.trim().split('\n');
-      console.log(colors.gray(indent + '[%s] line %s %s'), error.code, error.line, colors.blue(descriptionLines[0]));
+      console.log(indent + 'on line %s [%s] %s', error.line, error.code, colors.red(descriptionLines[0]));
 
       if (descriptionLines.length > 1) {
         console.log(colors.gray(indent+ descriptionLines.slice(1).join('\n' + indent).trim()));
