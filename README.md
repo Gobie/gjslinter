@@ -14,13 +14,13 @@ npm install gjslinter
 
 Execute the linter
 ```javascript
-var glob = require('glob-stream');
+var fs = require('vinyl-fs');
 var gjslinter = require('gjslinter');
 
-glob.create('./src/**/*.js')
+fs.src('./src/**/*.js')
   .pipe(gjslinter({
     flags: ['--nojsdoc']
-  }));
+  }))
   .pipe(gjslinter.reporter());
 ```
 
